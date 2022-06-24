@@ -1,0 +1,13 @@
+Compile: g++ -o start main.cpp
+Execute:  ./start
+
+子彈攻擊判定: 如果怪物撞上玩家與射擊同時，怪物會被消滅。    
+
+Shooting: Space
+Move: Direction key
+
+System: Linux
+
+
+
+

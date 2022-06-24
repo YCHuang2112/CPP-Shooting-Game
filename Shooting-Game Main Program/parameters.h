@@ -1,0 +1,17 @@
+#ifndef PARAMETERS
+#define PARAMETERS
+
+#define PARA_TARGET_SCORE_INIT_VAL 1
+#define PARA_PLAYER_HP_INIT_VAL 6
+
+#define PARA_MAX_MONSTER_NUM_INIT 6
+#define PARA_MAX_BULLET_NUM_INIT 6
+#define PARA_MAX_TRAP_NUM_INIT 20
+
+#define PARA_PLAYER_NAME_MAX_LEN 8
+
+#define PARA_TRAPPED_TIME 2 // player will be traped X s 
+
+#define PARA_TOP_RECORD_NUM 3
+
+#endif
