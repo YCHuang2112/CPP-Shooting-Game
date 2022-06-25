@@ -58,7 +58,8 @@
 	
 	If the number of killed monsters reaches requirement, player advanced to next stage.
 	
-	There're infite stages of the game.  Further you go, numbers of monsters increase accompanied by the increment of player HP, numbers of bullets and traps.
+	There're infite stages of the game.  Further you go, so do numbers of monsters increase 
+	accompanied by the increment of player HP, numbers of bullets and traps.
 
 ## Game Screen:
 ![screen-gif](./GIF/Screen1.gif)
