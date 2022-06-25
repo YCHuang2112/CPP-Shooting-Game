@@ -3,10 +3,10 @@
 
 ## Final project of C++ programming, NCTU ECE, 2016 Fall.
 
+####  Project Site: https://github.com/YCHuang2112/JAVA-Music-Game
 ----
 
 #### Credited to (14th group members): 
-		
 		Yu-Cheng Huang (Game interface, logic, and hitting instances), 
 
 		林以鑫 (Start panel and frequency domain signal processing),
@@ -16,7 +16,6 @@
 -----
 
 ## prerequisite:
-
 	Linux environment
 
 	g++ compiler
@@ -36,7 +35,6 @@
 	ctrl+s starts/continues the game.
 	
 ## Game Operation and Logic:
-	
 	symbol p: player
 	
 	symbol I: monsters
@@ -69,12 +67,10 @@
 
 
 ## User Settings:
-
 	See file: parameters.h
 	*To activate new settings, please recompile the whole project.
 	
 ## Scoreboard:
-
 	See file: Score_board.txt
 	
 
