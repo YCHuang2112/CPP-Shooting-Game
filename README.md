@@ -62,7 +62,7 @@
 
 ## Game Screen:
 #### Game start
-//![screen-gif](./GIF/Screen1.gif)
+![screen-gif](./GIF/Screen1.gif)
 	
 <!-- <img src="./GIF/Screen1.gif" alt="My Project GIF" width="500" height="600"> -->
 
