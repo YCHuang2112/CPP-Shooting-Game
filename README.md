@@ -36,26 +36,17 @@
 	
 ## Game Operation and Logic:
 	symbol p: player
-	
 	symbol I: monsters
-	
 	symbol o: bullets
-	
 	symbol x around p: activated traps
 	
 
 	Direction Key: controls player movement
-	
 	Space Key:     shoot bullets 
 	
-	
 	player shoot monsters, while monsters can "Bonk"/attack and bounce player back.
-	
-	
 	traps can freeze player for few seconds.
-	
-	Once the player HP becomes zero, then game ends.
-	
+	Once the player HP becomes zero, the game ends.
 	If the number of killed monsters reaches requirement, player advanced to next stage.
 	
 	There're infite stages of the game.  Further you go, so do numbers of monsters increase 
