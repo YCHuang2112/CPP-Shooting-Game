@@ -60,7 +60,10 @@
 	void player::reset() {
 		py = height/2;
 		px = width/2;
+		
 		maxbullet = PARA_MAX_BULLET_NUM_INIT;
+		Blist.clear();
+		
 		face = Down;
 		//HP_Setter(PARA_PLAYER_HP_INIT_VAL, height + 5, "Player");
 		HP_Setter(PARA_PLAYER_HP_INIT_VAL);
@@ -68,7 +71,10 @@
 	void player::reset(int HP_inc, int Bullet_inc) {
 		py = height/2;
 		px = width/2;
+		
 		maxbullet = min(maxbullet+Bullet_inc,12);
+		Blist.clear();
+		
 		face = Down;
 		//HP_Setter( min(HP_Getter()+HP_inc,16), height + 5, "Player");
 		HP_Setter(min(HP_Getter()+HP_inc,16));

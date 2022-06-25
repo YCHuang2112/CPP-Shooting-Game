@@ -6,12 +6,12 @@
 ####  Project Site: https://github.com/YCHuang2112/JAVA-Music-Game
 ----
 
-#### Credited to (14th group members): 
-		Yu-Cheng Huang (Game interface, logic, and hitting instances), 
+#### Credited to (the 14th group members): 
+		Yu-Cheng Huang (Game interface, logic, and integration), 
 
-		林以鑫 (Start panel and frequency domain signal processing),
+		林以鑫 (Program Structure Design),
  
-		高璿哲 (integration, composing songs, sound sampling, and time domain signal processing).
+		高璿哲 (Game Classes Design).
 
 -----
 
@@ -61,6 +61,7 @@
 	There're infite stages of the game.  Further you go, numbers of monsters increase accompanied by the increment of player HP, numbers of bullets and traps.
 
 ## Game Screen:
+#### Game start
 //![screen-gif](./GIF/Screen1.gif)
 	
 <!-- <img src="./GIF/Screen1.gif" alt="My Project GIF" width="500" height="600"> -->

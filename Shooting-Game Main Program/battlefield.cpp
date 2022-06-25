@@ -162,7 +162,10 @@ void Battlefield::Trap_action_handler(){
 				Tlist[i].set_Activated(true);
 				Tlist[i].show();
 			}
-			if((int)((clock()-Tlist[i].get_Activated_Time())/CLOCKS_PER_SEC) >= PARA_TRAPPED_TIME){
+		}
+		if(Tlist[i].is_Activated()){
+			bool Time_out = (int)((clock()-Tlist[i].get_Activated_Time())/CLOCKS_PER_SEC) >= PARA_TRAPPED_TIME;
+			if(Time_out){
 				fflush(stdin);
 				gotoxy(Tlist[i].getx()+1, Tlist[i].gety());
 				cout << " ";
