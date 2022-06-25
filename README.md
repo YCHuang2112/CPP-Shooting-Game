@@ -61,7 +61,6 @@
 	There're infite stages of the game.  Further you go, numbers of monsters increase accompanied by the increment of player HP, numbers of bullets and traps.
 
 ## Game Screen:
-#### Game start
 ![screen-gif](./GIF/Screen1.gif)
 	
 <!-- <img src="./GIF/Screen1.gif" alt="My Project GIF" width="500" height="600"> -->
