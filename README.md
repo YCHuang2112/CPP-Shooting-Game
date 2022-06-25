@@ -1,16 +1,17 @@
-# A mini music game and pad controller design 
-# (along with plug-ins)
+# A Monster Shooting Game 
+# (along with POSTFIX)
 
-## Final project of Java programming, NCTU ECE, 2017.
+## Final project of C++ programming, NCTU ECE, 2017.
 
 ----
 
-#### Credited to: 
+#### Credited to (14th group members): 
+		
 		Yu-Cheng Huang (Game interface, logic, and hitting instances), 
 
-		姚宇聲 (Start panel and frequency domain signal processing),
+		林以鑫 (Start panel and frequency domain signal processing),
  
-		鄭群瀚 (integration, composing songs, sound sampling, and time domain signal processing).
+		高璿哲 (integration, composing songs, sound sampling, and time domain signal processing).
 
 -----
 

@@ -3,6 +3,8 @@
 trap::trap(){
 	tx = rand() % width;
 	ty = rand() % height;
+	Activated = false;
+	Activated_Time = 0;
 }
 void trap::show(){
 	gotoxy(tx+1, ty);

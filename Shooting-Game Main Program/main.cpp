@@ -42,7 +42,7 @@ void load_record( map<pii, string, greater<pii>> &Score_Board){
 	fclose(fp);
 }
 
-void write_record( map<pii, string, greater<pii>> &Score_Board){
+void write_record( map<pii, string, greater<pii>> &Score_Board ){
 	FILE* fp = fopen("score_board.txt", "w");
 	int i = PARA_TOP_RECORD_NUM;
 	for(auto &SB: Score_Board){
@@ -54,19 +54,7 @@ void write_record( map<pii, string, greater<pii>> &Score_Board){
 	fclose(fp);
 }
 
-int main() {
-	srand(time(NULL));	
-	Battlefield BF;
-	
-	Ask_User_Name(BF);
-	
-	map<pii, string, greater<pii>> Score_Board;
-	load_record(Score_Board);
-	
-//here:
-	while(1){
-		BF.BattleStart();
-		
+void show_Score_Board_and_Info( map<pii, string, greater<pii>> &Score_Board, Battlefield &BF ){
 		int i = PARA_TOP_RECORD_NUM;
 		gotoxy(width/2 - 10 < 0 ? 0 : width/2 - 10, height/2 - 1-i -1);
 		printf(" \033[m %20s","Highest Score");
@@ -83,7 +71,29 @@ int main() {
 		gotoxy(width/2 - 10 < 0 ? 0 : width/2 - 10, height/2 +2);
 		cout << "Press \"" "\033[1;33m" "Backspace" "\033[m" "\" to quit!" << endl;
 		gotoxy(width/2 - 10 < 0 ? 0 : width/2 - 10, height/2 +3);
-		cout << "Press \"" "\033[1;33m" "Ctrl+s" "\033[m" "\" to start a new game!" << endl;
+		cout << "Press \"" "\033[1;33m" "Ctrl+s" "\033[m" "\" to start or continue!" << endl;
+		
+		gotoxy(width/2 - 10 < 0 ? 0 : width/2 - 10, height/2 +5);
+		printf("\033[mYour Score: %-4d Your Stage: %-3d",BF.get_Score(),BF.get_Stage_ID());
+		
+		return;
+}
+
+int main() {
+	srand(time(NULL));	
+	Battlefield BF;
+	
+	Ask_User_Name(BF);
+	
+	map<pii, string, greater<pii>> Score_Board;
+	load_record(Score_Board);
+	
+//here:
+	while(1){
+		BF.BattleStart();
+		
+		show_Score_Board_and_Info(Score_Board, BF);
+		
 		while(char c = getchar()	){
 //cout << ((int) c) << endl;		
 			if(c == 0X7f){  //Backspace

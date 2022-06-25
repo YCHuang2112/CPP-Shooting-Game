@@ -42,11 +42,19 @@ class Battlefield
 		int EventUserInput(player &p, bool &PBmove, Battlefield &BF);
 	bool BshotM(bullet &B);
 
-		bool gotone(player &, trap &);
+		bool Encounter_Trap(player &, trap &);
 		void Mmove(player &P);
 		void monster_show();
 		void player_show();
 		void leave_player(int &mx, int &my);
+		
+		void Print_BF();
+		bool User_action_handler(bool PBmove);
+		void Trap_action_handler();
+		void Human_safety_checker_handler();
+		void Monster_action_handler();
+		void Bullet_action_handler();
+		void Game_End_handler();
 		
 		int get_Stage_ID(){return Stage_ID;} 
 		int get_Score(){return score;} 
@@ -69,6 +77,7 @@ class Battlefield
 		int score;
 		int mwidth, mheight;
 		bool player_dead = false;
+		bool player_halt = false;
 
 		player *pp;
 		friend class monster;
