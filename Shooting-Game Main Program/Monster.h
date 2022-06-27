@@ -16,6 +16,7 @@ class monster {
 
 	private:
 		int mx,my;
+		int x_ambiguous, y_ambiguous;
 		bool show;
 		void clearm()
 		{
