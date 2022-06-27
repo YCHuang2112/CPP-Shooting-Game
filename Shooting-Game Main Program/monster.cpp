@@ -57,10 +57,10 @@ using namespace std;
 //cout << r << endl;
 			if(r!=0){
 			switch (dir) {
-				case Down  :	    my+=1; cout << "y+1" << endl; break;
-				case Up	   :	    my-=1; cout << "y-1" << endl; break;
-				case Right :	    mx+=1; cout << "x+1" << endl; break;
-				case Left  :	    mx-=1; cout << "x-1" << endl; break;
+				case Down  :	    my+=1; break;
+				case Up	   :	    my-=1; break;
+				case Right :	    mx+=1; break;
+				case Left  :	    mx-=1; break;
 				default    : changedir(P); break;
 			}
 			}

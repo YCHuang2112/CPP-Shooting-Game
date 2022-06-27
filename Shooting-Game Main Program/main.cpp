@@ -117,9 +117,9 @@ int main() {
 				
 				int HP_inc = 1;
 				int Bullet_inc = 2;
-				int Monster_inc = 3;
+				int Monster_inc = 5;
 				int Trap_inc = 1;
-				int Score_Target_inc = 10 + BF.get_Stage_ID();
+				int Score_Target_inc = 10 + BF.get_Stage_ID()*5;
 				BF.BattleReset(HP_inc, Bullet_inc, Monster_inc, Trap_inc, Score_Target_inc);
 				break;
 			}

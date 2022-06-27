@@ -50,6 +50,6 @@ bullet::bullet(edir d, int x, int y)
 		show = true;
 		if( BF.BshotM(*this)) return true;
 		/*BF_Bound_Checker(bx, by);*/  if(bx < minw || bx > width || by < minh || by > height) return true;		
-		emerge();
+		//emerge();
 		return false;
 	}

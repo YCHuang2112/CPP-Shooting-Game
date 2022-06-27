@@ -19,11 +19,15 @@
 			case 'C': px+=1;	 face = Right;  break;
 			case 'D': px-=1;	 face = Left; break;
 			case ' ': Blist.push_back( bullet(face, px, py));
+					  
 
 		}
 
 		BF_Bound_Checker(px, py);
 		emerge();
+		
+		gotoxy(width/2 - 10 < 0 ? 0 : width/2 - 20, height+2);
+		printf("\033[38;5;82m Bullets:%5lu/%d  \033[0;37m",maxbullet-Blist.size(),maxbullet);
 	}
 
 	void player::act(char ch, bool Bmove, Battlefield &BF)
@@ -37,15 +41,20 @@
 	}
 	void player::bullet_renew(Battlefield &BF)
 	{
-		for(int i = Blist.size() -1 ; i >= 0; i--)
-			if( Blist[i].move_shot(BF) ) Blist.erase( Blist.begin() + i );
+		for(int i = Blist.size() -1 ; i >= 0; i--){
+			if( Blist[i].move_shot(BF) ){ Blist.erase( Blist.begin() + i );}
+		}
+		for(int i = 0; i < Blist.size(); i++){ Blist[i].Bshow();}
+			
+		gotoxy(width/2 - 10 < 0 ? 0 : width/2 - 20, height+2);
+		printf("\033[38;5;82m Bullets:%5lu/%d  \033[0;37m",maxbullet-Blist.size(),maxbullet);
 	}
 
 	bool player::Bhurt(int mx, int my)
 	{
 		bool haveshoot = false;
-		for(int i = Blist.size()-1; i  >= 0; i--)
-			
+//gotoxy(width/2 - 10 < 0 ? 0 : width/2 - 20, height+4);
+		for(int i = Blist.size()-1; i  >= 0; i--){	
 			if(Blist[i].bx == mx && Blist[i].by == my)
 			{	
 				if(!Blist.size()) break;
@@ -53,6 +62,12 @@
 				Blist.erase( Blist.begin() + i);
 				haveshoot = true;
 			}
+//printf("\033[38;5;82m (%d/%d)  \033[0;37m",Blist[i].bx,Blist[i].by);
+		}
+			
+		gotoxy(width/2 - 10 < 0 ? 0 : width/2 - 20, height+2);
+		printf("\033[38;5;82m Bullets:%5lu/%d  \033[0;37m",maxbullet-Blist.size(),maxbullet);
+		
 		if(haveshoot)		return true;
 		return false;
 	}

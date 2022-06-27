@@ -16,8 +16,10 @@ private:
 	}
 	void emerge()
 	{
+		printf("\033[38;5;201m");
 		gotoxy(bx, by);
 		putchar('o');
+		printf("\033[0;37m");
 	}
 	
 	Battlefield *BF_ptr;
@@ -33,6 +35,7 @@ public:
 	inline bool getshow() { return show; }
 	
 	bool move_shot(Battlefield &BF);
+	void Bshow(){ emerge();}
 	
 	friend class monster;		
 	friend class Battlefield;

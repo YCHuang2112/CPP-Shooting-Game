@@ -25,8 +25,10 @@ class monster {
 		}
 		void emerge()
 		{
+			//printf("\033[38;5;204m");
 			gotoxy(mx, my);
 			putchar('C');
+			printf("\033[0;37m");
 		}
 		
 		Battlefield *BF_ptr;

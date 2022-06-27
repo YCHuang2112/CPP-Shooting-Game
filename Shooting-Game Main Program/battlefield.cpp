@@ -130,6 +130,7 @@ printf("\033[1;35m");
 		gotoxy(width+1, i+1);
 		cout << '|';
 	}
+printf("\033[0;37m");
 }
 
 bool Battlefield::User_action_handler(bool PBmove){
@@ -276,16 +277,17 @@ void Battlefield::BattleStart()
 
 				MBTcounter = 0;
 
-				gotoxy(40, 0);
-				printf("\033[0;33m""score: %d", score);
-				printf("\033m");
+				//gotoxy(40, 0);
+				gotoxy(width/2 - 10 < 0 ? 0 : width/2 - 20, height+3);
+				printf("\033[0;33m"" Score  : %4d/%d", score, score_target);
+				printf("\033[0;37m");
 				
 				//Bullet_action_handler
 				Bullet_action_handler();
 			}
 
 			gotoxy(0, 0);
-			printf("\033[1;33m" "%lld   seconds""\033[m", (clock() - subsor)/ CLOCKS_PER_SEC);			
+			printf("\033[1;33m" "%4lld seconds""\033[m", (clock() - subsor)/ CLOCKS_PER_SEC);			
 		
 			fflush(stdout);
 			start += 1000;

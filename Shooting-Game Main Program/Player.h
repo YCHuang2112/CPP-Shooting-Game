@@ -27,8 +27,10 @@ private:
 	}
 	void emerge()
 	{
+		printf("\033[38;5;199m");
 		gotoxy(px, py);
 		putchar('I');
+		printf("\033[0;37m");
 	}
 
 public:
