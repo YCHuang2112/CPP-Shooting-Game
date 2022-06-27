@@ -4,6 +4,7 @@
 #include<string.h>
 #include<unistd.h>
 #include<sys/select.h>
+#include <sys/file.h>
 #include<termios.h>
 #include<time.h>
 #include<vector>
@@ -31,17 +32,22 @@ void Ask_User_Name(Battlefield &BF){
 	BF.set_Player_Name(name);
 }
 
-
+///*
 void load_record( map<pii, string, greater<pii>> &Score_Board){
 	FILE* fp = fopen("score_board.txt", "a+");
+	
+	flock(fp->_fileno, LOCK_EX);
+	
 	int score, stage;
 	char ch[40];
 	while(fscanf(fp,"%d %d %s", &score, &stage, ch) == 3){
 		Score_Board[ pii(score,stage) ] = string(ch, PARA_PLAYER_NAME_MAX_LEN);
 	}
 	fclose(fp);
+	
+	flock(fp->_fileno, LOCK_UN);
 }
-
+/*
 void write_record( map<pii, string, greater<pii>> &Score_Board ){
 	FILE* fp = fopen("score_board.txt", "w");
 	int i = PARA_TOP_RECORD_NUM;
@@ -53,6 +59,33 @@ void write_record( map<pii, string, greater<pii>> &Score_Board ){
 	}
 	fclose(fp);
 }
+*/
+void load_write_record( map<pii, string, greater<pii>> &Score_Board ){
+	FILE* fp1 = fopen("score_board.txt", "a+");
+	
+	flock(fp1->_fileno, LOCK_EX);
+	
+	int score, stage;
+	char ch[40];
+	while(fscanf(fp1,"%d %d %s", &score, &stage, ch) == 3){
+		Score_Board[ pii(score,stage) ] = string(ch, PARA_PLAYER_NAME_MAX_LEN);
+	}
+	
+	FILE* fp2 = fopen("score_board.txt", "w");
+	int i = PARA_TOP_RECORD_NUM;
+	for(auto &SB: Score_Board){
+		i--;
+		auto &score_stage = SB.first;
+		fprintf(fp2,"%d %d %s\n", score_stage.first, score_stage.second, SB.second.c_str() );
+		if(i==0){break;}
+	}
+	
+	fclose(fp1);
+	fclose(fp2);
+	
+	flock(fp1->_fileno, LOCK_UN);
+}
+
 
 void show_Score_Board_and_Info( map<pii, string, greater<pii>> &Score_Board, Battlefield &BF ){
 		int i = PARA_TOP_RECORD_NUM;
@@ -103,7 +136,8 @@ int main() {
 				showCursor();
 				
 				Score_Board[ pii(BF.get_Score(), BF.get_Stage_ID()) ] = BF.get_Player_Name();
-				write_record(Score_Board);
+				//write_record(Score_Board);
+				load_write_record(Score_Board);
 				
 				return 0;		
 			}
