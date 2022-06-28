@@ -168,14 +168,7 @@ void Battlefield::Trap_action_handler(){
 			bool Time_out = (int)((clock()-Tlist[i].get_Activated_Time())/CLOCKS_PER_SEC) >= PARA_TRAPPED_TIME;
 			if(Time_out){
 				fflush(stdin);
-				gotoxy(Tlist[i].getx()+1, Tlist[i].gety());
-				cout << " ";
-				gotoxy(Tlist[i].getx()-1, Tlist[i].gety());
-				cout << " ";
-				gotoxy(Tlist[i].getx(), Tlist[i].gety()+1);
-				cout << " ";
-				gotoxy(Tlist[i].getx(), Tlist[i].gety()-1);
-				cout << " ";
+				Tlist[i].disappear();
 				Tlist[i].settrap(p.getx(), p.gety());
 				Tlist[i].set_Activated_Time(0);
 				Tlist[i].set_Activated(false);
@@ -284,6 +277,9 @@ void Battlefield::BattleStart()
 				
 				//Bullet_action_handler
 				Bullet_action_handler();
+				
+				//Player Drew again
+				p.show();
 			}
 
 			gotoxy(0, 0);

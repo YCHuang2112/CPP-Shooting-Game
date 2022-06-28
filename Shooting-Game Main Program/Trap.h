@@ -18,6 +18,7 @@ class trap{
 		void show();
 		trap();
 		void settrap(int, int);
+		void disappear();
 		void set_Activated(bool status){Activated = status;}
 		void set_Activated_Time(long long time){Activated_Time = time;}
 		

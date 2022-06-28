@@ -7,15 +7,42 @@ trap::trap(){
 	Activated_Time = 0;
 }
 void trap::show(){
-	gotoxy(tx+1, ty);
+	if(tx+1 < width+1){
+		gotoxy(tx+1, ty);
 		cout << "X";
-	gotoxy(tx-1, ty);
+	}
+	if(tx-1 > 2){
+		gotoxy(tx-1, ty);
 		cout << "X";
-	gotoxy(tx, ty+1);
+	}
+	if(ty+1 < height+1){
+		gotoxy(tx, ty+1);
 		cout << "X";
-	gotoxy(tx, ty-1);
+	}
+	if(ty-1 > 2){
+		gotoxy(tx, ty-1);
 		cout << "X";
+	}
 }
+void trap::disappear(){
+	if(tx+1 < width+1){
+		gotoxy(tx+1, ty);
+		cout << " ";
+	}
+	if(tx-1 > 2){
+		gotoxy(tx-1, ty);
+		cout << " ";
+	}
+	if(ty+1 < height+1){
+		gotoxy(tx, ty+1);
+		cout << " ";
+	}
+	if(ty-1 > 2){
+		gotoxy(tx, ty-1);
+		cout << " ";
+	}
+}
+
 void trap::settrap(int px, int py){
 	tx = rand() % width;
 	ty = rand() % height;
@@ -23,25 +50,25 @@ void trap::settrap(int px, int py){
 	{
 		tx += 8;
 		if (tx > width)
-			tx -= width;
+			tx -= (width-2);
 	}
 	else if (tx + 8 >= px && tx <= px)
 	{
 		tx -= 8;
-		if (tx < 0)
-			tx += width;
+		if (tx < 3)
+			tx += (width-2);
 	}
 	if (ty - 8 < py && ty > py)
 	{
 		ty += 8;
 		if (ty > height)
-			ty -= height;
+			ty -= (height-2);
 	}
 	else if (ty + 8 >= py && ty <= py)
 	{
 		tx -= 8;
-		if (ty < 0)
-			ty += height;
-	}
+		if (ty < 3)
+			ty += (height-2);
+	}	
 }
 
