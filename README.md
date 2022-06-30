@@ -24,7 +24,7 @@
 	Open Terminal and go to directory: Shooting-Game Main Program
 
 	Then, executing following commands:
-		rm start  
+		(optional) rm start  
 		(optional) rm score_board.txt
 		g++ -o start main.cpp
 	
